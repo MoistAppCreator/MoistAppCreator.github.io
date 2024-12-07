@@ -17,6 +17,7 @@ let gameOver, win;
 let enemiesDirection = 1;
 
 function initializeGame() {
+
     player = {
         x: canvas.width / 2 - 20,
         y: canvas.height - 60,
@@ -29,15 +30,6 @@ function initializeGame() {
 
     bullets = [];
     const bulletPoolCount = 20;
-    // bullet = {
-    //     x: 0,
-    //     y: 0,
-    //     width: 5,
-    //     height: 10,
-    //     color: 'yellow',
-    //     speed: 7,
-    //     active: false
-    // };
     for (let bCount = 0; bCount < bulletPoolCount; bCount++) {
         bullets.push({
             x: 0,

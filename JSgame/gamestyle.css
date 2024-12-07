@@ -1,4 +1,3 @@
-/* style.css */
 
 body {
     margin: 0;
@@ -8,14 +7,19 @@ body {
 }
 
 canvas {
+    width: 100%; /* Scale width to fill container */
+    height: auto; /* Maintain aspect ratio */
     display: block;
-    margin: 0 auto;
     background: black;
     border: 2px solid white;
 }
 
+.canvas-container {
+  padding: 100px; /* Adjust buffer size */
+}
+
 button {
-    display: none; /* Hidden by default */
+    display: none;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -33,78 +37,185 @@ button:hover {
     color: black;
 }
 
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+
+
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-family:Fantasy, Copperplate;font-weight:normal;line-height:1.1;color:#3282e6}h1 small,h2 small,h3 small,h4 small,h5 small,h6 small,.h1 small,.h2 small,.h3 small,.h4 small,.h5 small,.h6 small{font-weight:normal;line-height:1}
+h1,.h1{font-size:45px;line-height:48px}
+h2,.h2{font-size:36px;line-height:42px}
+h3,.h3{font-size:28px;line-height:36px}
+h4,.h4{font-size:24px;line-height:25px;color:#ffffff}
+h5,.h5{font-size:20px;line-height:24px}
+h6,.h6{font-size:18px;line-height:24px}
+
+#maintitle{
+  margin-top: 50;
+  margin-bottom: 100;
+}
+
+
+#mainbodytext{
+  margin: 0;
+  padding: 100;
+  line-height: 5;
+}
+
+p {
+  font-size: 20px;
+}
+
+#bg {
+  width: 500px;
+  height: 500px;
+  background: url('image') no-repeat top center;
+  background-color: blue;
+}
+
+a{
+  color:#3282e6;
   }
-  
-  h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-family:Fantasy, Copperplate;font-weight:normal;line-height:1.1;color:#3282e6}h1 small,h2 small,h3 small,h4 small,h5 small,h6 small,.h1 small,.h2 small,.h3 small,.h4 small,.h5 small,.h6 small{font-weight:normal;line-height:1}
-  h1,.h1{font-size:45px;line-height:48px}
-  h2,.h2{font-size:36px;line-height:42px}
-  h3,.h3{font-size:28px;line-height:36px}
-  h4,.h4{font-size:24px;line-height:25px;color:#ffffff}
-  h5,.h5{font-size:20px;line-height:24px}
-  h6,.h6{font-size:18px;line-height:24px}
-  
-  #maintitle{
-    margin-top: 50;
-    margin-bottom: 100;
+a:hover,a:focus{
+  color:#fb00ff;text-decoration:underline;
   }
-  
+
+#linkbarlinks > a{
+  color:#000000;
+  }
+#linkbarlinks > a:hover,a:focus{
+  color:#002fff;
+  }
+
+
+#linkbar{
+  margin: 0%;
+  padding: 0px;
+  background-color: #ffffff;
+  position: relative;
+  text-align: left;
+  max-height: 48;
+  color: #000000;
+}
+
+#linkbarlinks{
+  float: right;
+  margin: 0%;
+  padding: 0px;
+  background-color: #ffffff;
+  position: relative;
+  top: -48;
+  text-align: right;
+  max-height: 50;
+  max-width: 700;
+  margin-left: 150;
+  color: #000000;
+  overflow: hidden;
+}
+
+#linkbarcurrentpage{
+  color: #ffffff !important;
+  background-color: #000000;
+  text-decoration: none;
+}
+
+
+#headerimg{
+  position: relative;
+  padding: 0%;
+  margin: 0%;
+  max-width: 150;
+  max-height: 150;
+  overflow: visible;
+}
+
+#footer {
+  position: fixed;
+  padding: 0px;
+  bottom:  0;
+  width: 100%;
+  font-size: 18px;
+  background-color: black;
+}
+
+#imglandscape{
+  max-width: 427;
+  max-height: 267;
+}
+#imgportrait{
+  max-width: 267;
+  max-height: 427;
+}
+#imgbox{
+  max-width: 427;
+  max-height: 427;
+}
+
+
+@media (max-width: 670px) {
+
+  #imglandscape{
+    max-width: 256.2;
+    max-height: 160.2;
+  }
+  #imgportrait{
+    max-width: 160.2;
+    max-height: 256.2;
+  }
+  #imgbox{
+    max-width: 256.2;
+    max-height: 256.2;
+  }
+
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: Fantasy, Copperplate;
+    font-size:8px;
+    line-height:1.428571429;
+    text-align: center;
+  }
+
+  p{
+    font-size: 14px;
+  }
   
   #mainbodytext{
     margin: 0;
-    padding: 100;
-    line-height: 5;
+    padding-top: 100;
+    padding-bottom: 100;
+    padding-right: 0;
+    padding-left: 0;
+    line-height: 2;
   }
-  
-  p {
-    font-size: 20px;
+
+  #footer {
+    position: fixed;
+    padding: 0px; /* negative value of footer height */
+    bottom:  0;
+    width: 100%;
+    font-size: 10px;
   }
-  
-  #bg {
-    width: 500px;
-    height: 500px;
-    background: url('image') no-repeat top center;
-    background-color: blue;
-  }
-  
-  a{
-    color:#3282e6;
-    }
-  a:hover,a:focus{
-    color:#fb00ff;text-decoration:underline;
-    }
-  
-  #linkbarlinks > a{
-    color:#000000;
-    }
-  #linkbarlinks > a:hover,a:focus{
-    color:#002fff;
-    }
-  
-  
+
   #linkbar{
     margin: 0%;
     padding: 0px;
     background-color: #ffffff;
     position: relative;
     text-align: left;
-    max-height: 48;
+    max-height: 24;
     color: #000000;
   }
   
   #linkbarlinks{
+    font-size: 23;
     float: right;
     margin: 0%;
     padding: 0px;
     background-color: #ffffff;
     position: relative;
-    top: -48;
+    top: -36;
+    left: -50;
     text-align: right;
-    max-height: 50;
-    max-width: 700;
+    max-height: 36;
+    max-width: 400;
     margin-left: 150;
     color: #000000;
     overflow: hidden;
@@ -121,129 +232,18 @@ button:hover {
     position: relative;
     padding: 0%;
     margin: 0%;
-    max-width: 150;
-    max-height: 150;
+    max-width: 75;
+    max-height: 75;
     overflow: visible;
   }
+
   
-  #footer {
-    position: fixed;
-    padding: 0px; /* negative value of footer height */
-    bottom:  0;
-    width: 100%;
-    font-size: 18px;
-    background-color: black;
-  }
-  
-  #imglandscape{
-    max-width: 427;
-    max-height: 267;
-  }
-  #imgportrait{
-    max-width: 267;
-    max-height: 427;
-  }
-  #imgbox{
-    max-width: 427;
-    max-height: 427;
-  }
-  
-  
-  @media (max-width: 670px) {
-  
-    #imglandscape{
-      max-width: 256.2;
-      max-height: 160.2;
-    }
-    #imgportrait{
-      max-width: 160.2;
-      max-height: 256.2;
-    }
-    #imgbox{
-      max-width: 256.2;
-      max-height: 256.2;
-    }
-  
-    body {
-      background-color: #000000;
-      color: #ffffff;
-      font-family: Fantasy, Copperplate;
-      font-size:8px;
-      line-height:1.428571429;
-      text-align: center;
-    }
-  
-    p{
-      font-size: 14px;
-    }
-    
-    #mainbodytext{
-      margin: 0;
-      padding-top: 100;
-      padding-bottom: 100;
-      padding-right: 0;
-      padding-left: 0;
-      line-height: 2;
-    }
-  
-    #footer {
-      position: fixed;
-      padding: 0px; /* negative value of footer height */
-      bottom:  0;
-      width: 100%;
-      font-size: 10px;
-    }
-  
-    #linkbar{
-      margin: 0%;
-      padding: 0px;
-      background-color: #ffffff;
-      position: relative;
-      text-align: left;
-      max-height: 24;
-      color: #000000;
-    }
-    
-    #linkbarlinks{
-      font-size: 23;
-      float: right;
-      margin: 0%;
-      padding: 0px;
-      background-color: #ffffff;
-      position: relative;
-      top: -36;
-      left: -50;
-      text-align: right;
-      max-height: 36;
-      max-width: 400;
-      margin-left: 150;
-      color: #000000;
-      overflow: hidden;
-    }
-    
-    #linkbarcurrentpage{
-      color: #ffffff !important;
-      background-color: #000000;
-      text-decoration: none;
-    }
-    
-    
-    #headerimg{
-      position: relative;
-      padding: 0%;
-      margin: 0%;
-      max-width: 75;
-      max-height: 75;
-      overflow: visible;
-    }
-  
-    
-  }
-  
-  .box{
-    width: 60%;
-    margin: 20%;
-    text-align: center;
-    border-top:20px solid royalblue;
-    border-bottom:5px solid royalblue;
-  }
+}
+
+.box{
+  width: 60%;
+  margin: 20%;
+  text-align: center;
+  border-top:20px solid royalblue;
+  border-bottom:5px solid royalblue;
+}
