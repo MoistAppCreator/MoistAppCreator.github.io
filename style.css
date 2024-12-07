@@ -1,222 +1,200 @@
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-family:Fantasy, Copperplate;font-weight:normal;line-height:1.1;color:#3282e6}h1 small,h2 small,h3 small,h4 small,h5 small,h6 small,.h1 small,.h2 small,.h3 small,.h4 small,.h5 small,.h6 small{font-weight:normal;line-height:1}
-h1,.h1{font-size:45px;line-height:48px}
-h2,.h2{font-size:36px;line-height:42px}
-h3,.h3{font-size:28px;line-height:36px}
-h4,.h4{font-size:24px;line-height:25px;color:#ffffff}
-h5,.h5{font-size:20px;line-height:24px}
-h6,.h6{font-size:18px;line-height:24px}
-
-#maintitle{
-  margin-top: 50;
-  margin-bottom: 100;
-}
-
 body {
-  background-color: #000000;
-  color: #ffffff;
-  font-family: Fantasy, Copperplate;
-  font-size:14px;
-  line-height:1.428571429;
   text-align: center;
+  margin: 0;
+  background: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
 }
 
-#mainbodytext{
+canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: black;
+  border: 2px solid white;
+}
+
+.canvas-container {
+  padding: 100px;
+}
+
+button {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  font-size: 18px;
+  color: white;
+  background-color: black;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Fantasy, Copperplate;
+  font-weight: normal;
+  line-height: 1.1;
+  color: #3282e6;
+}
+
+h1 { font-size: 45px; }
+h2 { font-size: 36px; }
+h3 { font-size: 28px; }
+h4 { font-size: 24px; color: white; }
+h5 { font-size: 20px; }
+h6 { font-size: 18px; }
+
+#maintitle {
+  margin: 50px 0 100px;
+}
+
+#mainbodytext {
   margin: 0;
-  padding: 100;
-  line-height: 5;
+  padding: 100px 0;
+  line-height: 2;
 }
 
 p {
   font-size: 20px;
 }
 
-#bg {
-  width: 500px;
-  height: 500px;
-  background: url('image') no-repeat top center;
-  background-color: blue;
+a {
+  color: #3282e6;
+  text-decoration: none;
 }
 
-a{
-  color:#3282e6;
-  }
-a:hover,a:focus{
-  color:#fb00ff;text-decoration:underline;
-  }
+a:hover, a:focus {
+  color: #fb00ff;
+  text-decoration: underline;
+}
 
-#linkbarlinks > a{
-  color:#000000;
-  }
-#linkbarlinks > a:hover,a:focus{
-  color:#002fff;
-  }
-
-
-#linkbar{
-  margin: 0%;
-  padding: 0px;
-  background-color: #ffffff;
-  position: relative;
-  text-align: left;
-  max-height: 48;
+#linkbarlinks > a {
   color: #000000;
 }
 
-#linkbarlinks{
-  float: right;
-  margin: 0%;
-  padding: 0px;
+#linkbarlinks > a:hover {
+  color: #002fff;
+}
+
+#linkbar {
+  margin: 0;
+  padding: 0;
   background-color: #ffffff;
   position: relative;
-  top: -48;
+  text-align: left;
+  max-height: 48px;
+  color: #000000;
+}
+
+#linkbarlinks {
+  float: right;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  position: relative;
+  top: -48px;
   text-align: right;
-  max-height: 50;
-  max-width: 700;
-  margin-left: 150;
+  max-height: 50px;
+  max-width: 700px;
+  margin-left: 150px;
   color: #000000;
   overflow: hidden;
 }
 
-#linkbarcurrentpage{
+#linkbarcurrentpage {
   color: #ffffff !important;
   background-color: #000000;
-  text-decoration: none;
 }
 
-
-#headerimg{
+#headerimg {
   position: relative;
-  padding: 0%;
-  margin: 0%;
-  max-width: 150;
-  max-height: 150;
+  margin: 0;
+  max-width: 150px;
+  max-height: 150px;
   overflow: visible;
 }
 
 #footer {
   position: fixed;
-  padding: 0px; /* negative value of footer height */
-  bottom:  0;
+  text-align: center;
+  bottom: 0;
   width: 100%;
   font-size: 18px;
   background-color: black;
 }
 
-#imglandscape{
-  max-width: 427;
-  max-height: 267;
+#imglandscape, #imgportrait, #imgbox {
+  max-width: 100%;
+  height: auto;
 }
-#imgportrait{
-  max-width: 267;
-  max-height: 427;
-}
-#imgbox{
-  max-width: 427;
-  max-height: 427;
+
+#bg {
+  width: 500px;
+  height: 500px;
+  background: url('image') no-repeat center top;
+  background-color: blue;
 }
 
 
 @media (max-width: 670px) {
-
-  #imglandscape{
-    max-width: 256.2;
-    max-height: 160.2;
-  }
-  #imgportrait{
-    max-width: 160.2;
-    max-height: 256.2;
-  }
-  #imgbox{
-    max-width: 256.2;
-    max-height: 256.2;
-  }
-
   body {
-    background-color: #000000;
-    color: #ffffff;
-    font-family: Fantasy, Copperplate;
-    font-size:8px;
-    line-height:1.428571429;
-    text-align: center;
+      font-size: 8px;
+      text-align: center;
   }
 
-  p{
-    font-size: 14px;
+  p {
+      font-size: 14px;
   }
-  
-  #mainbodytext{
-    margin: 0;
-    padding-top: 100;
-    padding-bottom: 100;
-    padding-right: 0;
-    padding-left: 0;
-    line-height: 2;
+
+  #mainbodytext {
+      padding: 100px 0;
   }
 
   #footer {
-    position: fixed;
-    padding: 0px; /* negative value of footer height */
-    bottom:  0;
-    width: 100%;
-    font-size: 10px;
+      font-size: 10px;
   }
 
-  #linkbar{
-    margin: 0%;
-    padding: 0px;
-    background-color: #ffffff;
-    position: relative;
-    text-align: left;
-    max-height: 24;
-    color: #000000;
-  }
-  
-  #linkbarlinks{
-    font-size: 23;
-    float: right;
-    margin: 0%;
-    padding: 0px;
-    background-color: #ffffff;
-    position: relative;
-    top: -36;
-    left: -50;
-    text-align: right;
-    max-height: 36;
-    max-width: 400;
-    margin-left: 150;
-    color: #000000;
-    overflow: hidden;
-  }
-  
-  #linkbarcurrentpage{
-    color: #ffffff !important;
-    background-color: #000000;
-    text-decoration: none;
-  }
-  
-  
-  #headerimg{
-    position: relative;
-    padding: 0%;
-    margin: 0%;
-    max-width: 75;
-    max-height: 75;
-    overflow: visible;
+  #linkbar {
+      max-height: 20px;
   }
 
-  
+  #linkbarlinks {
+      font-size: 18px;
+      top: -20px;
+      max-height: 20px;
+      max-width: 400px;
+  }
+
+  #headerimg {
+      max-width: 75px;
+      max-height: 75px;
+  }
+
+  #imglandscape {
+      max-width: 256.2px;
+  }
+
+  #imgportrait {
+      max-width: 160.2px;
+  }
+
+  #imgbox {
+      max-width: 256.2px;
+  }
 }
 
-.box{
+.box {
   width: 60%;
-  margin: 20%;
+  margin: 20% auto;
   text-align: center;
-  border-top:20px solid royalblue;
-  border-bottom:5px solid royalblue;
+  border-top: 20px solid royalblue;
+  border-bottom: 5px solid royalblue;
 }

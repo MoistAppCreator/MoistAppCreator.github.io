@@ -17,7 +17,6 @@ let gameOver, win;
 let enemiesDirection = 1;
 
 function initializeGame() {
-
     player = {
         x: canvas.width / 2 - 20,
         y: canvas.height - 60,
@@ -149,11 +148,17 @@ function checkCollisions() {
                 bullet.active = false;
                 enemy.active = false;
             }
-
-            if (enemy.active && enemy.y + enemy.height >= player.y) {
-                gameOver = true;
-            }
         });
+    });
+
+    enemies.forEach(enemy => {
+        if (!enemy.active){
+            return;
+        };
+
+        if (enemy.active && enemy.y + enemy.height >= player.y) {
+            gameOver = true;
+        }
     });
 
     if (enemies.every(enemy => !enemy.active)) {
