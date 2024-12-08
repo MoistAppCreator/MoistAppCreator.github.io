@@ -1,20 +1,28 @@
+import { uiController } from "./uiController.js";
+
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const restartButton = document.getElementById('restartButton');
+const gameMenu = document.getElementById('gameMenu');
+const gameMenuText = document.getElementById('gameMenuText');
 canvas.width = 800;
 canvas.height = 600;
 
 //controls
-playerLeft = false;
-playerRight = false;
-playerShoot = false;
+let playerLeft, playerRight, playerShoot = false;
 let lastShotTime = 0;
 const shotCooldown = 500;
 
 //game objects
 let player, bullets, enemies;
 let gameOver, win;
+let gameRunning = false;
 let enemiesDirection = 1;
+let enemiesSpeed = 1;
+
+//ui
+const ui = new uiController(canvas, ctx);
+
 
 function initializeGame() {
     player = {
@@ -64,7 +72,7 @@ function initializeGame() {
 
     gameOver = false;
     win = false;
-    restartButton.style.display = 'none';
+    gameMenu.style.display = 'none';
 }
 
 function drawPlayer() {
@@ -113,7 +121,7 @@ function drawEnemies() {
 function moveEnemies() {
     enemies.forEach(enemy => {
         if (enemy.active) {
-            enemy.x += 1 * enemiesDirection;
+            enemy.x += enemiesSpeed * enemiesDirection;
         }
     });
 
@@ -170,11 +178,11 @@ function drawText() {
     ctx.fillStyle = 'white';
     ctx.font = '24px Arial';
     if (gameOver) {
-        ctx.fillText('Game Over!', canvas.width / 2 - 60, canvas.height / 2);
-        restartButton.style.display = 'block'; // Show restart button
+        gameMenuText.textContent = 'Game Over';
+        gameMenu.style.display = 'flex'; // Show restart button
     } else if (win) {
-        ctx.fillText('You Win!', canvas.width / 2 - 50, canvas.height / 2);
-        restartButton.style.display = 'block'; // Show restart button
+        gameMenuText.textContent = 'You Win';
+        gameMenu.style.display = 'flex'; // Show restart button
     }
 }
 
@@ -188,7 +196,6 @@ function applyPlayerActions(){
     if (playerShoot) {
         const currentTime = Date.now();
         if (currentTime - lastShotTime <= shotCooldown) {
-            console.log('Cannot shoot.');
             return;
         }
         lastShotTime = currentTime;
@@ -205,7 +212,7 @@ function applyPlayerActions(){
 }
 
 function update() {
-    if (gameOver || win) return;
+    if (gameOver || win || !gameRunning) return;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -220,11 +227,17 @@ function update() {
     drawEnemies();
     drawText();
 
+    // ui.draw();
+
     requestAnimationFrame(update);
 }
 
 // Restart game logic
 function restartGame() {
+    if (!gameRunning) {
+        restartButton.textContent = 'Restart Game';
+    }
+    gameRunning = true;
     initializeGame();
     update();
 }
@@ -248,11 +261,9 @@ document.addEventListener('keyup', e => {
         playerShoot = false;
     }
 });
+restartButton.addEventListener('click', restartGame);
 
-// Start the game
-initializeGame();
 update();
-
 
 // // Load the shooting sound
 // const shootSound = new Audio('assets/shoot.mp3');

@@ -17,23 +17,57 @@ canvas {
 
 .canvas-container {
   padding: 100px;
+  position: relative;
 }
 
 button {
-  display: none;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   padding: 10px 20px;
-  font-size: 18px;
+  font-size: 40px;
+  color: white;
+  background-color: black;
+  border: 2px solid white;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+}
+
+.game-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+  color: white;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.game-menu-overlay h2 {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 100px;
+  color: white;
+  background-color: black;
+}
+.game-menu-overlay button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 50px;
   color: white;
   background-color: black;
   border: 2px solid white;
   cursor: pointer;
 }
 
-button:hover {
+.game-menu-overlay button:hover {
   background-color: white;
   color: black;
 }
