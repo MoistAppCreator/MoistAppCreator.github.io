@@ -1,7 +1,10 @@
 class uiController {
-    constructor(canvas, ctx) {
+    constructor(canvas, jsonFilePath) {
         this.canvas = canvas;
-        this.ctx = ctx;
+        this.ctx = this.canvas.getContext("2d");
+
+        this.containers = [];
+        this.loadJson(jsonFilePath);
 
         // Define buttons
         this.buttons = [
@@ -19,6 +22,40 @@ class uiController {
         this.canvas.addEventListener("mousedown", (event) => this.handleClick(event));
     }
 
+
+    async loadJson(jsonFilePath) {
+        try {
+            const response = await fetch(jsonFilePath);
+            const data = await response.json();
+            this.parseJson(data);
+            this.renderUI();
+        } catch (error) {
+            console.error("Failed to load JSON file:", error);
+        }
+    }
+
+
+    parseJson(data) {
+        data.containers.forEach((container) => {
+                let frame = [];
+                let buttons = [];
+                let texts = [];
+                if (container.frame) {
+                    container.frame = new uiFrame(container.frame);
+                }
+                if (container.buttons) {
+                    container.buttons = container.buttons.map((button) => new uiButton(button));
+                }
+                if (container.texts) {
+                    container.texts = container.texts.map((text) => new uiText(text));
+                }
+            this.containers.push(new uiContainer(frame, buttons, texts));
+        })
+    };
+
+    renderUI() {
+    };
+
     // Draw all UI elements
     draw() {
         this.buttons.forEach((button) => this.drawButton(button));
@@ -32,7 +69,7 @@ class uiController {
 
         this.ctx.fillStyle = "white";
         this.ctx.font = "20px Arial";
-        this.ctx.textAlign = "center";
+        this.ctx.textAlign = "center";  
         this.ctx.textBaseline = "middle";
         this.ctx.fillText(text, x + width / 2, y + height / 2);
     }
@@ -58,3 +95,27 @@ class uiController {
 
 // Export UI module
 export { uiController };
+
+class uiContainer{
+    constructor(frame, buttonArray, textArray) {
+        this.frame = frame;
+        this.buttons = buttonArray;
+        this.texts = textArray;
+    }
+
+    render(params) {
+        
+    }
+  }
+
+class uiFrame{
+
+}
+
+class uiButton{
+
+}
+
+class uiText{
+
+}

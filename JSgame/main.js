@@ -21,7 +21,7 @@ let enemiesDirection = 1;
 let enemiesSpeed = 1;
 
 //ui
-const ui = new uiController(canvas, ctx);
+const ui = new uiController(canvas, "uiConfig.json");
 
 
 function initializeGame() {
@@ -227,7 +227,7 @@ function update() {
     drawEnemies();
     drawText();
 
-    // ui.draw();
+    ui.draw();
 
     requestAnimationFrame(update);
 }

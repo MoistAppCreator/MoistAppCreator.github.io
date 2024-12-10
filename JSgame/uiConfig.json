@@ -1,0 +1,53 @@
+{
+  "containers": [
+    {
+      "container1": [
+        {
+          "x": 100,
+          "y": 100,
+          "textFont": "16px Arial",
+          "frame": [
+            {
+            "x": 50,
+            "y": 50,
+            "width": 200,
+            "height": 100,
+            "frameColor": "#cccccc"
+            }
+          ],
+          "buttons": [
+            {
+              "startBtn": {"x": 0, "y": 0, "width": 100, "height": 40, "bgColor": "#ff0000", "textColor": "#ffffff", "label": "Start Game", "onClick": "startGame"},
+              "exitBtn": {"x": 0, "y": 50, "width": 100, "height": 40, "bgColor": "#ff0000", "textColor": "#ffffff", "label": "Exit Game", "onClick": "exitGame"}
+            }
+          ],
+          "texts": [
+            {
+              "simpleTxt": {"x": 0, "y": -50, "textColor": "#ffffff", "content": "FGame Menu"}
+            }
+          ]
+        }
+      ],
+      "container2": [
+        {
+          "x": 25,
+          "y": 25,
+          "textFont": "16px Arial",
+          "frame": [
+          ],
+          "buttons": [
+            {
+              "testBtn": {"x": 0, "y": 0, "width": 100, "height": 40, "bgColor": "#ff0000", "textColor": "#ffffff", "label": "Test Button", "onClick": "testButton"}
+            }
+          ],
+          "texts": [
+            {
+              "simpleTxt": {"x": 0, "y": -50, "textColor": "#ffffff", "content": "Hello, World!"}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
